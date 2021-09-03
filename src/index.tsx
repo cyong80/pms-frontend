@@ -2,7 +2,7 @@ import {StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.less';
 import './index.css';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import { ApolloProvider } from 'react-apollo';
 import ApolloClient from 'apollo-boost';
@@ -18,8 +18,10 @@ ReactDOM.render(
   <StrictMode>
     <ApolloProvider client={client}>
     <BrowserRouter>
-      <Route path={ '/login' } component={LoginPage} />
-      <Route component={App} />
+      <Switch>
+        <Route path={ '/login' } exact component={LoginPage} />
+        <Route path={ ['/','/rsvnmgr'] } component={App} />
+      </Switch>
     </BrowserRouter>
     </ApolloProvider>
   </StrictMode>,

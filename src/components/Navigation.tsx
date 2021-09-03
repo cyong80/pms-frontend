@@ -1,6 +1,6 @@
 import { Menu } from 'antd';
 import { FC } from 'react'
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 interface Props {
     Navigated?:()=>void;
