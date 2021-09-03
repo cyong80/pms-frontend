@@ -14,11 +14,10 @@ i18next
     .use(initReactI18next)
     .use(detector)
     .init({
-
+        detection:{order:['navigator']}, // default locale 우선순위 ( path -> browser detected)
         resources,
-        lng: "en",
         fallbackLng: 'en',
-        keySeparator: false,
+        //keySeparator: false,
         interpolation: {
             escapeValue: false
         }

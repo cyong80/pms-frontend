@@ -1,36 +1,29 @@
-import {FC, MouseEventHandler} from 'react'
-import {Button } from "antd"
+import { FC } from 'react'
 import styles from "./Hamburger.module.css";
+
 interface Props {
-    toggle: MouseEventHandler<HTMLElement>;
+    onToggle?: () => void;
     isOpen: boolean;
-    isMini: boolean;
-    dark?: boolean | null;
-    left?: boolean | null;
+    fixed?: boolean;
+    dark?: boolean;
+    left?: boolean;
 }
 
-const Hamburger:FC<Props> = (props:Props)=> {
-    const leftStyle = props.left ? styles.left : styles.right;
-    const darkStyle = props.dark ? styles.dark : '';
+const Hamburger:FC<Props> = ({isOpen, fixed=false, dark=false, left=false, ...props}:Props)=> {
+    const leftStyle = left ? styles.left : styles.right;
+    const darkStyle = dark ? styles.dark : '';
     return (<>
-    <Button
-    type="text"
+    <button
     aria-label="Open Menu"
-    onClick={props.toggle}
-    className={props.isOpen && !props.isMini ? styles["sidenav-opend"] : ""}
-  >
-    <div className={`${leftStyle} ${darkStyle} ${styles["sidenav-toggler-inner"]}`}>
-      <i className={styles["sidenav-toggler-line"]}></i>
-      <i className={styles["sidenav-toggler-line"]}></i>
-      <i className={styles["sidenav-toggler-line"]}></i>
+    className={`${isOpen && !fixed ? styles.opend : ""} ${styles.hamburger}`}
+    onClick={props.onToggle}>
+    <div className={`${leftStyle} ${darkStyle} ${styles.wrapper}`}>
+      <i className={styles.line}></i>
+      <i className={styles.line}></i>
+      <i className={styles.line}></i>
     </div>
-  </Button>
+  </button>
     </>);
 }
-
-Hamburger.defaultProps = {
-    left: false
-}
-
 
 export default Hamburger

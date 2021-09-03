@@ -1,0 +1,1 @@
+export declare type RoomStatus = 'Available' | 'Process' | 'Complete' | 'Telephone';

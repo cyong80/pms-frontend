@@ -1,33 +1,39 @@
-.sidenav-toggler-inner {
+.hamburger {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.wrapper {
     width: 18px;
     height: 12px;
 }
 
-.sidenav-toggler-inner .sidenav-toggler-line {
+.wrapper .line {
     transition: all 0.15s ease;
-    background: #FFFFFF;
+    background: #000000;
     border-radius: 0.125rem;
     position: relative;
     display: block;
     height: 2px;
 }
 
-.dark .sidenav-toggler-line {
-    background: #000000;
+.dark .line {
+    background: #FFFFFF;
 }
 
-.sidenav-toggler-inner .sidenav-toggler-line:not(:last-child) {
+.wrapper .line:not(:last-child) {
     margin-bottom: 3px;
 }
 
-.sidenav-opend .left .sidenav-toggler-line:first-child,
-.sidenav-opend .left .sidenav-toggler-line:last-child {
+.opend .left .line:first-child,
+.opend .left .line:last-child {
     left: -3px;
     transform: scaleX(0.6);
 }
 
-.sidenav-opend .right .sidenav-toggler-line:first-child,
-.sidenav-opend .right .sidenav-toggler-line:last-child {
+.opend .right .line:first-child,
+.opend .right .line:last-child {
     width: 13px;
     transform: translateX(5px);
 }

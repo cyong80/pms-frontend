@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/charts": "^1.2.10",
     "@ant-design/icons": "^4.6.4",
+    "@apollo/react-hooks": "^4.0.0",
     "@craco/craco": "^6.2.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -11,15 +13,18 @@
     "@types/i18next": "^13.0.0",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
+    "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.0",
     "@types/react-i18next": "^8.1.0",
     "@types/react-router-dom": "^5.1.8",
     "antd": "^4.16.13",
+    "apollo-boost": "^0.4.9",
     "craco-less": "^1.20.0",
+    "graphql": "^15.5.2",
     "i18next": "^20.4.0",
     "i18next-browser-languagedetector": "^6.1.2",
     "react": "^17.0.2",
+    "react-apollo": "^3.1.5",
     "react-dom": "^17.0.2",
     "react-i18next": "^11.11.4",
     "react-router-dom": "^5.2.1",
@@ -30,12 +35,24 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -50,7 +67,16 @@
       "last 1 safari version"
     ]
   },
+  "resolutions": {
+    "babel-loader": "8.1.0"
+  },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-links": "^6.3.7",
+    "@storybook/node-logger": "^6.3.7",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.3.7",
     "@types/antd": "^1.0.0"
   }
 }

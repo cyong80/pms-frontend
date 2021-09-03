@@ -1,5 +1,14 @@
 {
   "hello": "안녕하세요",
   "language_en": "English",
-  "language_ko": "한국어"
+  "language_ko": "한국어",
+  "BTN": {
+    "SIGN_IN": "로그인"
+  },
+  "TITLE": {
+    "RESERVATIONS": "예약현황",
+    "TODAY_STATUS": "금일현황",
+    "TOMORROW_STATUS": "내일현황",
+    "MONTHLY_STATUS": "월별현황"
+  }
 }

@@ -3,17 +3,25 @@ import ReactDOM from 'react-dom';
 import 'antd/dist/antd.less';
 import './index.css';
 import { BrowserRouter, Route } from 'react-router-dom';
-import DashboardPage from './pages/DashboardPage';
 import LoginPage from './pages/LoginPage';
+import { ApolloProvider } from 'react-apollo';
+import ApolloClient from 'apollo-boost';
+import App from './App'
 import './i18n'
 import reportWebVitals from './reportWebVitals';
 
+const client = new ApolloClient({
+  uri: "https://countries.trevorblades.com",
+});
+
 ReactDOM.render(
   <StrictMode>
+    <ApolloProvider client={client}>
     <BrowserRouter>
-      <Route path="/" exact component={DashboardPage} />
-      <Route path="/login" component={LoginPage} />
+      <Route path={ '/login' } component={LoginPage} />
+      <Route component={App} />
     </BrowserRouter>
+    </ApolloProvider>
   </StrictMode>,
   document.getElementById('root')
 );
